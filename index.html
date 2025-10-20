@@ -88,7 +88,7 @@
                 
                 <!-- Signature Process Card - Elevated Design -->
                 <div class="mt-12 text-left max-w-4xl mx-auto p-8 bg-white rounded-xl shadow-2xl border-t-4 border-emerald-500">
-                    <h3 class="2xl font-bold text-slate-800 mb-4 flex items-center primary-text">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4 flex items-center primary-text">
                         <span class="text-3xl mr-3">🚀</span> My 3-Step Scaling Process
                     </h3>
                     <div class="grid md:grid-cols-3 gap-6 text-slate-700 text-base">
@@ -175,7 +175,7 @@
                              </div>
                              
                              <div class="mt-8 p-5 bg-emerald-50 border border-emerald-300 rounded-lg">
-                                 <h4 class="xl font-bold text-emerald-800">Primary Result</h4>
+                                 <h4 class="text-xl font-bold text-emerald-800">Primary Result</h4>
                                  <p id="project-primary-result" class="mt-2 text-emerald-700 font-semibold"></p>
                              </div>
                         </div>
@@ -235,9 +235,9 @@
             const firebaseConfig = typeof __firebase_config !== 'undefined' ? __firebase_config : '{}';
             const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : undefined;
             
-            // --- FIX ---
-            // Changed the internal ID to the public Google Drive file URL so the browser can load it.
-            const bookFunnelImageURL = 'https://drive.google.com/uc?export=view&id=1owe47wKGI-K7dg8RYP2LsA1Usb5Sfiyw';
+            // --- FIX APPLIED HERE ---
+            // Using the filename directly, as you uploaded it to the root of the GitHub repository.
+            const bookFunnelImageURL = 'Book Funnel Web Design.png';
 
 
             const portfolioData = {
@@ -289,7 +289,7 @@
                     { 
                         id: 'funnel', 
                         image: '3 & 4', 
-                        // Now uses the direct URL
+                        // This uses the file name directly
                         imageUrl: bookFunnelImageURL, 
                         title: 'High-Conversion Mobile Funnels', 
                         description: 'Visual proof of professional, mobile-optimized landing page design and front-end conversion architecture.' 
