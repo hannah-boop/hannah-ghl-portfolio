@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GHL Automation & Architecture Specialist Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- REVISED PALETTE: Emerald Green (#10b981) for Growth/Revenue & Deep Slate (#1e293b) for Trust/Professionalism -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 40vh;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        /* New Emerald Theme Colors */
+        .primary-bg { background-color: #10b981; } /* emerald-500 */
+        .primary-hover { background-color: #059669; } /* emerald-600 */
+        .primary-text { color: #10b981; }
+        .active-tab {
+            background-color: #10b981; /* emerald-500 */
+            color: white;
+            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.4);
+        }
+        .inactive-tab {
+            background-color: #e2e8f0; /* slate-200 */
+            color: #475569; /* slate-600 */
+        }
+        .skill-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.2), 0 4px 6px -2px rgba(16, 185, 129, 0.1);
+            transform: translateY(-4px);
+            transition: all 0.3s ease-in-out;
+            border-color: #10b981;
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <header class="bg-white/95 backdrop-blur-md fixed top-0 left-0 right-0 z-10 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-extrabold text-slate-900 tracking-wider">HANNAH FORMENTO</h1>
+                    <p class="text-xs text-emerald-500 font-semibold uppercase -mt-1">GHL Architecture</p>
+                </div>
+                <nav class="hidden md:flex md:space-x-8">
+                    <a href="#summary" class="text-gray-500 hover:text-emerald-500 font-medium transition-colors">Summary</a>
+                    <a href="#skills" class="text-gray-500 hover:text-emerald-500 font-medium transition-colors">Skills</a>
+                    <a href="#gallery" class="text-gray-500 hover:text-emerald-500 font-medium transition-colors">Work</a>
+                    <a href="#projects" class="text-gray-500 hover:text-emerald-500 font-medium transition-colors">Case Studies</a>
+                    <a href="#contact" class="text-gray-500 hover:text-emerald-500 font-medium transition-colors">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-16">
+        <section id="summary" class="py-20 md:py-32 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="mb-8">
+                    <img src="https://media.licdn.com/dms/image/v2/D5603AQGnu0v2WND-EQ/profile-displayphoto-crop_800_800/B56ZnjAve0I0AI-/0/1760450247142?e=1762387200&v=beta&t=NQRxIuZUoqMItK5WMDBhsVWr7pGUHqG0e92HRE4hJJ8" 
+                         alt="Hannah Formento Headshot" 
+                         class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-emerald-500 shadow-xl">
+                </div>
+                <h2 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight">
+                    Your Scaling Partner for <br> 
+                    <span class="text-4xl md:text-5xl primary-text">GoHighLevel Revenue Systems</span>
+                </h2>
+                <p class="mt-6 text-xl text-slate-600 max-w-4xl mx-auto">
+                    I don't just use GHL; I architect systems that transform messy leads into predictable profit. Specializing in <span class="font-bold text-slate-900">back-end automation, clean data, and revenue-focused reporting</span>, I ensure your marketing infrastructure scales effortlessly. <span class="font-extrabold text-emerald-600">Stop managing your software, start scaling your business.</span>
+                </p>
+                
+                <!-- Signature Process Card - Elevated Design -->
+                <div class="mt-12 text-left max-w-4xl mx-auto p-8 bg-white rounded-xl shadow-2xl border-t-4 border-emerald-500">
+                    <h3 class="2xl font-bold text-slate-800 mb-4 flex items-center primary-text">
+                        <span class="text-3xl mr-3">🚀</span> My 3-Step Scaling Process
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-6 text-slate-700 text-base">
+                        <div>
+                            <p class="font-bold text-slate-900 mb-1">1. Audit & Discovery</p>
+                            <p class="text-sm">Mapping existing funnels and pipelines to pinpoint immediate revenue leaks and system gaps.</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-900 mb-1">2. Architectural Build</p>
+                            <p class="text-sm">Designing and deploying clean, efficient GHL Snapshots and workflows for maximum lead velocity.</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-900 mb-1">3. Optimization & ROI</p>
+                            <p class="text-sm">Implementing attribution and custom reports for continuous optimization and measurable proof of value.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="#" download="Hannah_Formento_GHL_Specialist.pdf" class="mt-10 inline-flex items-center space-x-2 primary-bg text-white font-semibold px-10 py-4 rounded-full shadow-lg hover:primary-hover transition-colors duration-300 transform hover:scale-105">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                    </svg>
+                    <span>Download Full Resume (PDF)</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="skills" class="py-20 bg-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-slate-900">Core Competencies: Results-Focused</h2>
+                    <p class="mt-4 text-lg text-slate-600">I deliver end-to-end solutions, focused purely on measurable business outcomes.</p>
+                </div>
+                <!-- Layout adjusted for 6 items on wide screens -->
+                <div id="skills-container" class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 justify-center">
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-slate-900">Gallery of Works (Visual Proof)</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Specific components that validate my implementation quality. <span class="font-bold text-emerald-600">Reference the image numbers below when viewing the live GHL system.</span></p>
+                </div>
+                <!-- Layout adjusted for 6 items on wide screens -->
+                <div id="gallery-container" class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 justify-center">
+                    <!-- Gallery items will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-20 bg-white border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-slate-900">Quantifiable Client Case Studies</h2>
+                    <p class="mt-4 text-lg text-slate-600">See how architectural solutions translated into measurable business growth metrics.</p>
+                </div>
+
+                <div class="mt-10 flex justify-center space-x-4">
+                    <!-- Updated tab styles -->
+                    <button id="tab-asphalt" data-project="asphalt" class="project-tab px-6 py-3 font-bold rounded-full transition-all duration-200">
+                        Local Service Niche
+                    </button>
+                    <button id="tab-agency" data-project="agency" class="project-tab px-6 py-3 font-bold rounded-full transition-all duration-200">
+                        Agency/SaaS Automation
+                    </button>
+                </div>
+                
+                <div id="project-content" class="mt-12">
+                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+                        <div class="lg:col-span-2">
+                             <h3 id="project-title" class="text-3xl font-extrabold text-slate-800"></h3>
+                             <p id="project-goal" class="mt-2 font-semibold primary-text text-lg"></p>
+                             
+                             <div class="mt-8">
+                                 <h4 class="text-xl font-bold text-slate-800 border-l-4 border-emerald-500 pl-3">The Challenge</h4>
+                                 <p id="project-challenge" class="mt-3 text-slate-600"></p>
+                             </div>
+                             
+                             <div class="mt-8">
+                                 <h4 class="text-xl font-bold text-slate-800 border-l-4 border-emerald-500 pl-3">The Architectural Solution</h4>
+                                 <p id="project-solution" class="mt-3 text-slate-600"></p>
+                             </div>
+                             
+                             <div class="mt-8 p-5 bg-emerald-50 border border-emerald-300 rounded-lg">
+                                 <h4 class="xl font-bold text-emerald-800">Primary Result</h4>
+                                 <p id="project-primary-result" class="mt-2 text-emerald-700 font-semibold"></p>
+                             </div>
+                        </div>
+
+                        <div class="lg:col-span-3">
+                            <h3 class="text-2xl font-bold text-slate-800 text-center mb-6">Key Performance Metrics</h3>
+                            <div class="chart-container shadow-xl p-4 rounded-xl bg-slate-50">
+                                <canvas id="resultsChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+        <!-- NEW: Closing Value Proposition Banner -->
+        <div class="bg-slate-800 py-16">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h3 class="text-4xl font-extrabold text-white">Ready for <span class="text-emerald-500">Guaranteed ROI</span> on your GHL Investment?</h3>
+                <p class="mt-4 text-xl text-slate-300">My systems are built for long-term scalability and clean reporting, eliminating messy tech stacks for good.</p>
+            </div>
+        </div>
+
+        <section id="contact" class="py-20 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                 <h2 class="text-3xl font-bold text-slate-900">Let's Discuss Your Next Build</h2>
+                 <p class="mt-6 text-xl text-slate-600 max-w-3xl mx-auto">
+                    If you’re ready to move past technical bottlenecks and deploy a GHL infrastructure that truly scales, let’s schedule a brief audit call.
+                </p>
+                <div class="mt-10 space-y-4">
+                    <p class="text-xl font-extrabold text-slate-800">Hannah Formento - GHL Architect</p>
+                    <p class="text-lg text-slate-600">Email: <a href="mailto:hannahformento.dev@gmail.com" class="primary-text hover:text-emerald-700 font-medium">hannahformento.dev@gmail.com</a></p>
+                    <p class="text-lg text-slate-600">LinkedIn: <a href="https://www.linkedin.com/in/hannah-bea-formento-930420230/" target="_blank" class="primary-text hover:text-emerald-700 font-medium">Connect on LinkedIn</a></p>
+                </div>
+                <a href="mailto:hannahformento.dev@gmail.com" class="mt-10 inline-block primary-bg text-white font-semibold px-10 py-4 rounded-full shadow-lg hover:primary-hover transition-colors duration-300 transform hover:scale-105">
+                    Send a Direct Message
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 Hannah Formento - GHL Specialist. Built for results.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        // --- Core Application Logic ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // These local variables safely access the environment's global variables.
+            const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+            const firebaseConfig = typeof __firebase_config !== 'undefined' ? __firebase_config : '{}';
+            const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : undefined;
+            
+            // --- FIX ---
+            // Changed the internal ID to the public Google Drive file URL so the browser can load it.
+            const bookFunnelImageURL = 'https://drive.google.com/uc?export=view&id=1owe47wKGI-K7dg8RYP2LsA1Usb5Sfiyw';
+
+
+            const portfolioData = {
+                skills: [
+                    {
+                        icon: '⚙️',
+                        title: 'System Architecture',
+                        // Replaced **text** with <span>
+                        description: 'Delivers a <span class="font-extrabold text-emerald-600">90% reduction</span> in client onboarding time by architecting reusable, audit-proof Snapshots.',
+                        features: 'Snapshots, Custom Values, Agency Config'
+                    },
+                    {
+                        icon: '⚡️',
+                        title: 'Automation & Logic',
+                        // Replaced **text** with <span>
+                        description: 'Guarantees <span class="font-extrabold text-emerald-600">sub-15 minute lead response times</span> and triples show-up rates through intelligent, multi-channel logic.',
+                        features: 'Workflows, Triggers, SMS/Email'
+                    },
+                    {
+                        icon: '🎯',
+                        title: 'Conversion Funnels',
+                        // Replaced **text** with <span>
+                        description: 'Designs high-converting pages and opt-ins that drive <span class="font-extrabold text-emerald-600">higher-quality leads</span> at a lower CPL.',
+                        features: 'Page Builder, Two-Step Opt-ins, Mobile Opt.'
+                    },
+                    {
+                        icon: '📊',
+                        title: 'CRM & Pipeline',
+                        // Replaced **text** with <span>
+                        description: 'Structures Opportunities boards for <span class="font-extrabold text-emerald-600">predictable revenue forecasting</span> and sales process accountability.',
+                        features: 'Opportunities Management, Pipeline Automation'
+                    },
+                    {
+                        icon: '🔗',
+                        title: 'Advanced Integration',
+                        // Replaced **text** with <span>
+                        description: 'Connects GHL to external systems (Zapier/Webhooks) for centralized data logging and <span class="font-extrabold text-emerald-600">instant critical alerts</span>.',
+                        features: 'Webhooks, Zapier, Discord/Sheets'
+                    },
+                    {
+                        icon: '📈',
+                        title: 'Reporting & Analytics',
+                        // Replaced **text** with <span>
+                        description: 'Sets up custom dashboards and conversion tracking to ensure every dollar of ad spend is <span class="font-extrabold text-emerald-600">measured and optimized</span>.',
+                        features: 'Attribution, Custom Reports, Goal Tracking'
+                    }
+                ],
+                galleryItems: [
+                    { 
+                        id: 'funnel', 
+                        image: '3 & 4', 
+                        // Now uses the direct URL
+                        imageUrl: bookFunnelImageURL, 
+                        title: 'High-Conversion Mobile Funnels', 
+                        description: 'Visual proof of professional, mobile-optimized landing page design and front-end conversion architecture.' 
+                    },
+                    { 
+                        id: 'pipeline', 
+                        image: '5', 
+                        title: 'Standardized CRM Pipeline', 
+                        description: 'Validation of a clean, standardized, and revenue-focused sales process structure in the Opportunities board.' 
+                    },
+                    { 
+                        id: 'snapshot', 
+                        image: '12', 
+                        title: 'Scalable Snapshot Architecture', 
+                        description: 'Demonstrates ability to productize systems into reusable templates for rapid client deployment.' 
+                    },
+                    { 
+                        id: 'workflow', 
+                        image: '7', 
+                        title: 'Advanced Multi-Channel Workflow', 
+                        description: 'Showcases complex, multi-branching logic and mastery of GHL’s most powerful automation feature.' 
+                    },
+                    { 
+                        id: 'integration', 
+                        image: '13', 
+                        title: 'External System Integration', 
+                        description: 'Evidence of connecting GHL via Webhooks/Zapier for advanced tracking, reporting, and internal team alerts.' 
+                    },
+                    { 
+                        id: 'email', 
+                        image: '8 & 9', 
+                        title: 'Email Campaign Architecture', 
+                        description: 'Visual evidence of high-deliverability email campaign creation and structured list segmentation.' 
+                    }
+                ],
+                projects: {
+                    // CASE STUDY 1: LOCAL SERVICE ENHANCED
+                    asphalt: {
+                        title: '500% Qualified Lead Volume Increase (Local Contractors)',
+                        goal: 'Local Service Contractor Niche',
+                        // Replaced **text** with <span>
+                        challenge: "The client faced a severe lead conversion bottleneck, with high ad spend yielding low-quality appointments (4.5% conversion). Leads were rotting in the inbox due to <span class=\"font-bold text-slate-800\">inconsistent follow-up</span> and zero integration between the website and the CRM, resulting in inaccurate cash-flow projections.",
+                        // Replaced **text** with <span>
+                        solution: "Engineered a high-performing, multi-step conversion funnel integrated directly into GHL, featuring dynamic lead qualification. I implemented a robust 5-stage pipeline with mandatory Opportunity Value and Status fields, ensuring every lead is instantly scored, followed up with a <span class=\"font-bold text-slate-800\">3-touch sequence</span>, and categorized for <span class=\"font-bold text-slate-800\">real-time management reporting</span>.",
+                        // Replaced **text** with <span>
+                        primaryResult: "Achieved a <span class=\"font-extrabold\">500% increase</span> in qualified lead volume and provided management with a unified, <span class=\"font-extrabold\">real-time revenue forecast dashboard</span>, enabling data-driven budget allocation.",
+                        chartData: {
+                            labels: ['Conversion Rate Increase', 'CPL Reduction', 'Forecast Accuracy Improv.', 'Lead Velocity Increase'],
+                            values: [((25 - 4.5) / 4.5) * 100, 40, 22, 15],
+                            tooltips: ['From 4.5% to 25%', 'Reduced Cost-Per-Lead by 40%', 'Improved by 22%', 'Increased by 15%']
+                        }
+                    },
+                    // CASE STUDY 2: AGENCY/SAAS ENHANCED
+                    agency: {
+                        title: '90% Client Deployment Time Reduction (Agency/SaaS)',
+                        goal: 'Digital Agency / System Template Provider',
+                        // Replaced **text** with <span>
+                        challenge: "The agency's rapid growth was unsustainable due to a <span class=\"font-bold text-slate-800\">manual and non-productized client onboarding process</span>, averaging 2.5 weeks per new client. Lead intake was scattered across 5+ social and form platforms, creating a 4.8-hour delay in critical first-touch engagement.",
+                        // Replaced **text** with <span>
+                        solution: "Created a suite of <span class=\"font-bold text-slate-800\">5 fully productized, niche-specific Snapshots</span>. Architected a Unified Lead Intake Workflow (Image 7) using conditional branching to centralize leads from all sources (Meta, TikTok, Forms), guaranteeing a <span class=\"font-bold text-slate-800\">personalized, response-time-optimized follow-up sequence</span>. Integrated internal alerting via Webhooks to Discord for 24/7 team awareness.",
+                        // Replaced **text** with <span>
+                        primaryResult: "Reduced the average qualified lead response time to <span class=\"font-extrabold\">under 15 minutes</span> and cut the average client system deployment time by <span class=\"font-extrabold\">90%</span>, freeing up 160+ labor hours monthly.",
+                        chartData: {
+                            labels: ['Onboarding Time Reduction', 'Lead Response Time Reduction', 'Appointment Show-Up Rate Inc.', 'Email Open Rate'],
+                            values: [((100 - 3) / 100) * 100, ((288 - 15) / 288) * 100, 25, 32],
+                            tooltips: ['From 2.5 weeks to 3 hours', 'From 4.8 hours to < 15 mins', 'Increased by 25%', 'Achieved 32% Open Rate']
+                        }
+                    }
+                }
+            };
+            
+            // --- UI Rendering ---
+
+            const skillsContainer = document.getElementById('skills-container');
+            // Clear existing content before adding new cards
+            skillsContainer.innerHTML = ''; 
+            portfolioData.skills.forEach(skill => {
+                const skillCard = document.createElement('div');
+                skillCard.className = 'skill-card bg-white p-6 rounded-lg shadow-md transition duration-300 border-2 border-transparent';
+                // Using innerHTML ensures the <span> tags are rendered as HTML
+                skillCard.innerHTML = `
+                    <div class="text-4xl">${skill.icon}</div>
+                    <h3 class="mt-4 text-lg font-bold text-slate-800">${skill.title}</h3>
+                    <p class="mt-2 text-sm text-emerald-500 font-semibold">${skill.features}</p>
+                    <p class="mt-2 text-slate-600">${skill.description}</p>
+                `;
+                skillsContainer.appendChild(skillCard);
+            });
+
+            const galleryContainer = document.getElementById('gallery-container');
+            // Clear existing content before adding new cards
+            galleryContainer.innerHTML = '';
+            portfolioData.galleryItems.forEach(item => {
+                const galleryCard = document.createElement('div');
+                galleryCard.className = 'bg-white rounded-xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-2xl hover:border-b-4 border-emerald-500';
+
+                // Conditional rendering for the gallery image/placeholder
+                const mediaContent = item.imageUrl 
+                    ? `<img src="${item.imageUrl}" alt="${item.title}" class="w-full h-48 object-cover object-top border-b-2 border-slate-300" onerror="this.onerror=null;this.src='https://placehold.co/600x400/94a3b8/475569?text=Image+Load+Error';">` 
+                    : `<div class="w-full h-48 bg-slate-200 flex items-center justify-center text-slate-500 font-bold text-center p-4 border-b-2 border-slate-300">
+                           <span class="text-xl font-mono text-slate-600">REFERENCE: IMAGE ${item.image}</span>
+                       </div>`;
+
+                galleryCard.innerHTML = `
+                    ${mediaContent}
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-800">${item.title}</h3>
+                        <p class="mt-2 text-slate-600 text-sm">${item.description}</p>
+                    </div>
+                `;
+                galleryContainer.appendChild(galleryCard);
+            });
+
+
+            const projectTitle = document.getElementById('project-title');
+            const projectGoal = document.getElementById('project-goal');
+            const projectChallenge = document.getElementById('project-challenge');
+            const projectSolution = document.getElementById('project-solution');
+            const projectPrimaryResult = document.getElementById('project-primary-result');
+            
+            const tabs = document.querySelectorAll('.project-tab');
+            const chartCanvas = document.getElementById('resultsChart');
+            const ctx = chartCanvas.getContext('2d');
+            let resultsChart;
+
+            function updateProjectContent(projectName) {
+                const project = portfolioData.projects[projectName];
+                
+                projectTitle.textContent = project.title;
+                projectGoal.textContent = project.goal;
+                
+                // Using innerHTML to render the <span> tags inside the project descriptions
+                projectChallenge.innerHTML = project.challenge;
+                projectSolution.innerHTML = project.solution;
+                projectPrimaryResult.innerHTML = project.primaryResult;
+
+                tabs.forEach(tab => {
+                    if (tab.dataset.project === projectName) {
+                        tab.classList.add('active-tab');
+                        tab.classList.remove('inactive-tab');
+                    } else {
+                        tab.classList.add('inactive-tab');
+                        tab.classList.remove('active-tab');
+                    }
+                });
+
+                createOrUpdateChart(project.chartData);
+            }
+
+            function createOrUpdateChart(chartData) {
+                if (resultsChart) {
+                    resultsChart.destroy();
+                }
+                
+                resultsChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: chartData.labels,
+                        datasets: [{
+                            label: 'Performance Improvement (%)',
+                            data: chartData.values,
+                            backgroundColor: 'rgba(16, 185, 129, 0.9)', /* Emerald Green */
+                            borderColor: 'rgba(16, 185, 129, 1)',
+                            borderWidth: 1,
+                            borderRadius: 4
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.x !== null) {
+                                            label += `${context.parsed.x.toFixed(1)}% Improvement`;
+                                        }
+                                        const originalTooltip = chartData.tooltips[context.dataIndex];
+                                        return [label, `Note: ${originalTooltip}`];
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Improvement / Metric Value (%)'
+                                },
+                                grid: {
+                                    display: true,
+                                    color: '#e2e8f0'
+                                }
+                            },
+                            y: {
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    updateProjectContent(tab.dataset.project);
+                });
+            });
+
+            // Initialize to the first project
+            updateProjectContent('asphalt');
+            
+        });
+    </script>
+</body>
+</html>
