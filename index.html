@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- REVISED PALETTE: Emerald Green (#10b981) for Growth/Revenue & Deep Slate (#1e293b) for Trust/Professionalism -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -90,7 +89,6 @@
                     I don't just use GHL; I architect systems that transform messy leads into predictable profit. Specializing in <span class="font-bold text-slate-900">back-end automation, clean data, and revenue-focused reporting</span>, I ensure your marketing infrastructure scales effortlessly. <span class="font-extrabold text-emerald-600">Stop managing your software, start scaling your business.</span>
                 </p>
                 
-                <!-- Signature Process Card - Elevated Design -->
                 <div class="mt-12 text-left max-w-4xl mx-auto p-8 bg-white rounded-xl shadow-2xl border-t-4 border-emerald-500">
                     <h3 class="text-2xl font-bold text-slate-800 mb-4 flex items-center primary-text">
                         <span class="text-3xl mr-3">🚀</span> My 3-Step Scaling Process
@@ -126,7 +124,6 @@
                     <h2 class="text-3xl font-bold text-slate-900">Core Competencies: Results-Focused</h2>
                     <p class="mt-4 text-lg text-slate-600">I deliver end-to-end solutions, focused purely on measurable business outcomes.</p>
                 </div>
-                <!-- CHANGE 1: UPDATED GRID FOR 3x2 LAYOUT (lg:grid-cols-3) -->
                 <div id="skills-container" class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 justify-center">
                 </div>
             </div>
@@ -136,12 +133,10 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
                     <h2 class="text-3xl font-bold text-slate-900">Gallery of Works</h2>
-                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Specific components that validate my implementation quality. <span class="font-bold text-emerald-600">Reference the image numbers below when viewing the live GHL system.</span></p>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Click any item below for a detailed preview. These components are pulled directly from a **live, fully functional GHL sandbox** to demonstrate implementation quality.</p>
                 </div>
-                <!-- CHANGE 1: UPDATED GRID FOR 3x2 LAYOUT (lg:grid-cols-3) -->
                 <div id="gallery-container" class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 justify-center">
-                    <!-- Gallery items will be injected here by JavaScript -->
-                </div>
+                    </div>
             </div>
         </section>
 
@@ -153,7 +148,6 @@
                 </div>
 
                 <div class="mt-10 flex justify-center space-x-4">
-                    <!-- Updated tab styles -->
                     <button id="tab-asphalt" data-project="asphalt" class="project-tab px-6 py-3 font-bold rounded-full transition-all duration-200">
                         Local Service Niche
                     </button>
@@ -196,7 +190,6 @@
             </div>
         </section>
         
-        <!-- NEW: Closing Value Proposition Banner -->
         <div class="bg-slate-800 py-16">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h3 class="text-4xl font-extrabold text-white">Ready for <span class="text-emerald-500">Guaranteed ROI</span> on your GHL Investment?</h3>
@@ -229,10 +222,8 @@
         </div>
     </footer>
 
-    <!-- CHANGE 2: Image Modal Structure (Hidden by Default) -->
     <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden transition-opacity duration-300" style="opacity: 0;">
         <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-11/12 max-h-[90vh] overflow-hidden transform transition-all duration-300 scale-95 opacity-0" id="modal-content-wrapper">
-            <!-- Close Button -->
             <div class="flex justify-end p-4">
                 <button id="close-modal-btn" class="text-slate-900 hover:text-red-500 transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-8 h-8">
@@ -240,31 +231,28 @@
                     </svg>
                 </button>
             </div>
-            <!-- Content Area - Includes Title and Description -->
             <div class="px-6 pb-6 pt-0 overflow-y-auto max-h-[calc(90vh-6rem)] md:max-h-[calc(90vh-3rem)]">
                 <img id="modal-image" src="" alt="Gallery Item Preview" class="w-full h-auto rounded-lg mb-4 object-contain max-h-[60vh] mx-auto">
                 <h3 id="modal-title" class="text-2xl font-bold text-slate-800 border-b pb-2 mb-2"></h3>
                 <p id="modal-description" class="text-slate-600"></p>
-                <p class="mt-4 text-sm text-emerald-600 font-semibold italic">Reference Image Numbers: <span id="modal-reference"></span></p>
-            </div>
+                </div>
         </div>
     </div>
 
 
     <script>
         // --- Modal Functions (Available globally for inline onclick) ---
-        window.showModal = function(imageUrl, title, description, reference) {
+        // CHANGE 3: Removed 'reference' from parameters and body
+        window.showModal = function(imageUrl, title, description) {
             const modal = document.getElementById('image-modal');
             const modalImage = document.getElementById('modal-image');
             const modalTitle = document.getElementById('modal-title');
             const modalDescription = document.getElementById('modal-description');
-            const modalReference = document.getElementById('modal-reference');
             const modalContentWrapper = document.getElementById('modal-content-wrapper');
 
             modalImage.src = imageUrl;
             modalTitle.textContent = title;
             modalDescription.textContent = description;
-            modalReference.textContent = reference;
 
             // Show modal and apply transition effects
             modal.classList.remove('hidden');
@@ -351,14 +339,14 @@
                 galleryItems: [
                     { 
                         id: 'funnel', 
-                        image: '3 & 4', 
+                        image: '3 & 4', // Internal reference, no longer passed to modal
                         imageUrl: bookFunnelImageURL, 
                         title: 'High-Conversion Funnels', 
                         description: 'Visual proof of professional, mobile-optimized landing page design and front-end conversion architecture.' 
                     },
                     { 
                         id: 'pipeline', 
-                        image: '5', 
+                        image: '5', // Internal reference, no longer passed to modal
                         // Using a placeholder image for items without a specific URL
                         imageUrl: 'https://placehold.co/600x400/94a3b8/475569?text=GHL+Pipeline+View', 
                         title: 'Standardized CRM Pipeline', 
@@ -366,7 +354,7 @@
                     },
                     { 
                         id: 'snapshot', 
-                        image: '12', 
+                        image: '12', // Internal reference, no longer passed to modal
                         // Using a placeholder image for items without a specific URL
                         imageUrl: 'https://placehold.co/600x400/94a3b8/475569?text=GHL+Snapshot+Architecture', 
                         title: 'Scalable Snapshot Architecture', 
@@ -374,7 +362,7 @@
                     },
                     { 
                         id: 'workflow', 
-                        image: '7', 
+                        image: '7', // Internal reference, no longer passed to modal
                         // Using a placeholder image for items without a specific URL
                         imageUrl: 'https://placehold.co/600x400/94a3b8/475569?text=GHL+Workflow+Map', 
                         title: 'Advanced Multi-Channel Workflow', 
@@ -382,7 +370,7 @@
                     },
                     { 
                         id: 'integration', 
-                        image: '13', 
+                        image: '13', // Internal reference, no longer passed to modal
                         // Using a placeholder image for items without a specific URL
                         imageUrl: 'https://placehold.co/600x400/94a3b8/475569?text=External+Integration+Setup', 
                         title: 'External System Integration', 
@@ -390,7 +378,7 @@
                     },
                     { 
                         id: 'email', 
-                        image: '8 & 9', 
+                        image: '8 & 9', // Internal reference, no longer passed to modal
                         // Using a placeholder image for items without a specific URL
                         imageUrl: 'https://placehold.co/600x400/94a3b8/475569?text=Email+Campaign+Example', 
                         title: 'Email Campaign Architecture', 
@@ -458,7 +446,7 @@
                 const galleryCard = document.createElement('div');
                 galleryCard.className = 'bg-white rounded-xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-2xl hover:border-b-4 border-emerald-500';
 
-                // --- NEW MODAL RENDERING LOGIC ---
+                // --- MODAL RENDERING LOGIC ---
                 let mediaContent;
                 
                 // Using the specific image URL for the first item, and placeholders for others
@@ -475,9 +463,9 @@
                     const titleEscaped = item.title.replace(/'/g, "\\'");
                     const descriptionEscaped = item.description.replace(/'/g, "\\'");
 
-                    // Attach the global showModal function to the div's onclick event
+                    // CHANGE 3: Removed item.image from the arguments of showModal
                     mediaContent = `<div 
-                                        onclick="showModal('${itemImageUrl}', '${titleEscaped}', '${descriptionEscaped}', '${item.image}')" 
+                                        onclick="showModal('${itemImageUrl}', '${titleEscaped}', '${descriptionEscaped}')" 
                                         title="View Preview: ${item.title}" 
                                         class="block clickable-image-wrapper"
                                     >
@@ -486,10 +474,10 @@
                 } else {
                     // Fallback placeholder content
                     mediaContent = `<div class="w-full h-48 bg-slate-200 flex items-center justify-center text-slate-500 font-bold text-center p-4 border-b-2 border-slate-300">
-                           <span class="text-xl font-mono text-slate-600">REFERENCE: IMAGE ${item.image}</span>
+                           <span class="text-xl font-mono text-slate-600">PLACEHOLDER</span>
                        </div>`;
                 }
-                // --- END NEW MODAL RENDERING LOGIC ---
+                // --- END MODAL RENDERING LOGIC ---
 
                 galleryCard.innerHTML = `
                     ${mediaContent}
@@ -638,3 +626,4 @@
     </script>
 </body>
 </html>
+```eof
