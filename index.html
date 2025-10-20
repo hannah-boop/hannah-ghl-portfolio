@@ -112,7 +112,7 @@
                 </div>
                 
                 <a href="#" download="Hannah_Formento_GHL_Specialist.pdf" class="mt-10 inline-flex items-center space-x-2 primary-bg text-white font-semibold px-10 py-4 rounded-full shadow-lg hover:primary-hover transition-colors duration-300 transform hover:scale-105">
-                    <svg xmlns="http://www.w3.org/2003/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                     </svg>
                     <span>Download Full Resume (PDF)</span>
@@ -126,7 +126,7 @@
                     <h2 class="text-3xl font-bold text-slate-900">Core Competencies: Results-Focused</h2>
                     <p class="mt-4 text-lg text-slate-600">I deliver end-to-end solutions, focused purely on measurable business outcomes.</p>
                 </div>
-                <!-- UPDATED GRID: Enforces 3x2 on large screens for 6 items -->
+                <!-- CHANGE 1: UPDATED GRID FOR 3x2 LAYOUT (lg:grid-cols-3) -->
                 <div id="skills-container" class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 justify-center">
                 </div>
             </div>
@@ -138,7 +138,7 @@
                     <h2 class="text-3xl font-bold text-slate-900">Gallery of Works</h2>
                     <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Specific components that validate my implementation quality. <span class="font-bold text-emerald-600">Reference the image numbers below when viewing the live GHL system.</span></p>
                 </div>
-                <!-- UPDATED GRID: Enforces 3x2 on large screens for 6 items -->
+                <!-- CHANGE 1: UPDATED GRID FOR 3x2 LAYOUT (lg:grid-cols-3) -->
                 <div id="gallery-container" class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 justify-center">
                     <!-- Gallery items will be injected here by JavaScript -->
                 </div>
@@ -229,7 +229,7 @@
         </div>
     </footer>
 
-    <!-- Image Modal Structure (Hidden by Default) -->
+    <!-- CHANGE 2: Image Modal Structure (Hidden by Default) -->
     <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden transition-opacity duration-300" style="opacity: 0;">
         <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-11/12 max-h-[90vh] overflow-hidden transform transition-all duration-300 scale-95 opacity-0" id="modal-content-wrapper">
             <!-- Close Button -->
@@ -240,7 +240,7 @@
                     </svg>
                 </button>
             </div>
-            <!-- Content Area -->
+            <!-- Content Area - Includes Title and Description -->
             <div class="px-6 pb-6 pt-0 overflow-y-auto max-h-[calc(90vh-6rem)] md:max-h-[calc(90vh-3rem)]">
                 <img id="modal-image" src="" alt="Gallery Item Preview" class="w-full h-auto rounded-lg mb-4 object-contain max-h-[60vh] mx-auto">
                 <h3 id="modal-title" class="text-2xl font-bold text-slate-800 border-b pb-2 mb-2"></h3>
@@ -300,7 +300,7 @@
             const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : undefined;
             
             // Using the filename directly, as you uploaded it to the root of the GitHub repository.
-            const bookFunnelImageURL = 'Book Funnel Web Design.png';
+            const bookFunnelImageURL = 'Book Funnel Web Design.jpg';
 
 
             const portfolioData = {
@@ -359,30 +359,40 @@
                     { 
                         id: 'pipeline', 
                         image: '5', 
+                        // Using a placeholder image for items without a specific URL
+                        imageUrl: 'https://placehold.co/600x400/94a3b8/475569?text=GHL+Pipeline+View', 
                         title: 'Standardized CRM Pipeline', 
                         description: 'Validation of a clean, standardized, and revenue-focused sales process structure in the Opportunities board.' 
                     },
                     { 
                         id: 'snapshot', 
                         image: '12', 
+                        // Using a placeholder image for items without a specific URL
+                        imageUrl: 'https://placehold.co/600x400/94a3b8/475569?text=GHL+Snapshot+Architecture', 
                         title: 'Scalable Snapshot Architecture', 
                         description: 'Demonstrates ability to productize systems into reusable templates for rapid client deployment.' 
                     },
                     { 
                         id: 'workflow', 
                         image: '7', 
+                        // Using a placeholder image for items without a specific URL
+                        imageUrl: 'https://placehold.co/600x400/94a3b8/475569?text=GHL+Workflow+Map', 
                         title: 'Advanced Multi-Channel Workflow', 
                         description: 'Showcases complex, multi-branching logic and mastery of GHL’s most powerful automation feature.' 
                     },
                     { 
                         id: 'integration', 
                         image: '13', 
+                        // Using a placeholder image for items without a specific URL
+                        imageUrl: 'https://placehold.co/600x400/94a3b8/475569?text=External+Integration+Setup', 
                         title: 'External System Integration', 
                         description: 'Evidence of connecting GHL via Webhooks/Zapier for advanced tracking, reporting, and internal team alerts.' 
                     },
                     { 
                         id: 'email', 
                         image: '8 & 9', 
+                        // Using a placeholder image for items without a specific URL
+                        imageUrl: 'https://placehold.co/600x400/94a3b8/475569?text=Email+Campaign+Example', 
                         title: 'Email Campaign Architecture', 
                         description: 'Visual evidence of high-deliverability email campaign creation and structured list segmentation.' 
                     }
@@ -451,8 +461,15 @@
                 // --- NEW MODAL RENDERING LOGIC ---
                 let mediaContent;
                 
-                if (item.imageUrl) {
-                    const imageTag = `<img src="${item.imageUrl}" alt="${item.title}" class="w-full h-48 object-cover object-top border-b-2 border-slate-300" onerror="this.onerror=null;this.src='https://placehold.co/600x400/94a3b8/475569?text=Image+Load+Error';">`;
+                // Using the specific image URL for the first item, and placeholders for others
+                const itemImageUrl = item.id === 'funnel' ? bookFunnelImageURL : item.imageUrl;
+
+                if (itemImageUrl) {
+                    // Check if the file is a placeholder or a real image
+                    const altText = item.id === 'funnel' ? item.title : `Placeholder: ${item.title}`;
+                    const placeholderError = item.id === 'funnel' ? "this.onerror=null;this.src='https://placehold.co/600x400/94a3b8/475569?text=Image+Load+Error';" : "";
+                    
+                    const imageTag = `<img src="${itemImageUrl}" alt="${altText}" class="w-full h-48 object-cover object-top border-b-2 border-slate-300" onerror="${placeholderError}">`;
                     
                     // Escape strings for inline onclick function call
                     const titleEscaped = item.title.replace(/'/g, "\\'");
@@ -460,14 +477,14 @@
 
                     // Attach the global showModal function to the div's onclick event
                     mediaContent = `<div 
-                                        onclick="showModal('${item.imageUrl}', '${titleEscaped}', '${descriptionEscaped}', '${item.image}')" 
+                                        onclick="showModal('${itemImageUrl}', '${titleEscaped}', '${descriptionEscaped}', '${item.image}')" 
                                         title="View Preview: ${item.title}" 
                                         class="block clickable-image-wrapper"
                                     >
                                         ${imageTag}
                                     </div>`;
                 } else {
-                    // Placeholder content if no image URL is provided
+                    // Fallback placeholder content
                     mediaContent = `<div class="w-full h-48 bg-slate-200 flex items-center justify-center text-slate-500 font-bold text-center p-4 border-b-2 border-slate-300">
                            <span class="text-xl font-mono text-slate-600">REFERENCE: IMAGE ${item.image}</span>
                        </div>`;
