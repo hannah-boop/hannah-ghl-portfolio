@@ -112,7 +112,7 @@
                 </div>
                 
                 <a href="#" download="Hannah_Formento_GHL_Specialist.pdf" class="mt-10 inline-flex items-center space-x-2 primary-bg text-white font-semibold px-10 py-4 rounded-full shadow-lg hover:primary-hover transition-colors duration-300 transform hover:scale-105">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                    <svg xmlns="http://www.w3.org/2003/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                     </svg>
                     <span>Download Full Resume (PDF)</span>
@@ -126,8 +126,8 @@
                     <h2 class="text-3xl font-bold text-slate-900">Core Competencies: Results-Focused</h2>
                     <p class="mt-4 text-lg text-slate-600">I deliver end-to-end solutions, focused purely on measurable business outcomes.</p>
                 </div>
-                <!-- Layout adjusted for 6 items on wide screens -->
-                <div id="skills-container" class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 justify-center">
+                <!-- UPDATED GRID: Enforces 3x2 on large screens for 6 items -->
+                <div id="skills-container" class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 justify-center">
                 </div>
             </div>
         </section>
@@ -138,8 +138,8 @@
                     <h2 class="text-3xl font-bold text-slate-900">Gallery of Works</h2>
                     <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Specific components that validate my implementation quality. <span class="font-bold text-emerald-600">Reference the image numbers below when viewing the live GHL system.</span></p>
                 </div>
-                <!-- Layout adjusted for 6 items on wide screens -->
-                <div id="gallery-container" class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 justify-center">
+                <!-- UPDATED GRID: Enforces 3x2 on large screens for 6 items -->
+                <div id="gallery-container" class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 justify-center">
                     <!-- Gallery items will be injected here by JavaScript -->
                 </div>
             </div>
@@ -229,8 +229,68 @@
         </div>
     </footer>
 
+    <!-- Image Modal Structure (Hidden by Default) -->
+    <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden transition-opacity duration-300" style="opacity: 0;">
+        <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-11/12 max-h-[90vh] overflow-hidden transform transition-all duration-300 scale-95 opacity-0" id="modal-content-wrapper">
+            <!-- Close Button -->
+            <div class="flex justify-end p-4">
+                <button id="close-modal-btn" class="text-slate-900 hover:text-red-500 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-8 h-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Content Area -->
+            <div class="px-6 pb-6 pt-0 overflow-y-auto max-h-[calc(90vh-6rem)] md:max-h-[calc(90vh-3rem)]">
+                <img id="modal-image" src="" alt="Gallery Item Preview" class="w-full h-auto rounded-lg mb-4 object-contain max-h-[60vh] mx-auto">
+                <h3 id="modal-title" class="text-2xl font-bold text-slate-800 border-b pb-2 mb-2"></h3>
+                <p id="modal-description" class="text-slate-600"></p>
+                <p class="mt-4 text-sm text-emerald-600 font-semibold italic">Reference Image Numbers: <span id="modal-reference"></span></p>
+            </div>
+        </div>
+    </div>
+
 
     <script>
+        // --- Modal Functions (Available globally for inline onclick) ---
+        window.showModal = function(imageUrl, title, description, reference) {
+            const modal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDescription = document.getElementById('modal-description');
+            const modalReference = document.getElementById('modal-reference');
+            const modalContentWrapper = document.getElementById('modal-content-wrapper');
+
+            modalImage.src = imageUrl;
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            modalReference.textContent = reference;
+
+            // Show modal and apply transition effects
+            modal.classList.remove('hidden');
+            // Timeout is used to ensure the browser registers the display change before applying transitions
+            setTimeout(() => {
+                modal.style.opacity = '1';
+                modalContentWrapper.classList.remove('scale-95', 'opacity-0');
+            }, 10);
+        }
+
+        window.closeModal = function() {
+            const modal = document.getElementById('image-modal');
+            const modalContentWrapper = document.getElementById('modal-content-wrapper');
+
+            // Apply exit transition effects
+            modal.style.opacity = '0';
+            modalContentWrapper.classList.add('scale-95', 'opacity-0');
+
+            // Hide modal after transition completes
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                // Clear content to prevent flickering on next open
+                document.getElementById('modal-image').src = '';
+            }, 300); 
+        }
+
         // --- Core Application Logic ---
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -293,7 +353,7 @@
                         id: 'funnel', 
                         image: '3 & 4', 
                         imageUrl: bookFunnelImageURL, 
-                        title: 'High-Conversion Mobile Funnels', 
+                        title: 'High-Conversion Funnels', 
                         description: 'Visual proof of professional, mobile-optimized landing page design and front-end conversion architecture.' 
                     },
                     { 
@@ -388,22 +448,31 @@
                 const galleryCard = document.createElement('div');
                 galleryCard.className = 'bg-white rounded-xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-2xl hover:border-b-4 border-emerald-500';
 
-                // --- MODIFIED RENDERING LOGIC FOR CLICKABLE IMAGE ---
+                // --- NEW MODAL RENDERING LOGIC ---
                 let mediaContent;
                 
                 if (item.imageUrl) {
                     const imageTag = `<img src="${item.imageUrl}" alt="${item.title}" class="w-full h-48 object-cover object-top border-b-2 border-slate-300" onerror="this.onerror=null;this.src='https://placehold.co/600x400/94a3b8/475569?text=Image+Load+Error';">`;
                     
-                    // Wrap the image in a link to itself, opening in a new tab.
-                    // Added clickable-image-wrapper for cursor styling.
-                    mediaContent = `<a href="${item.imageUrl}" target="_blank" title="View Full Image: ${item.title}" class="block clickable-image-wrapper">${imageTag}</a>`;
+                    // Escape strings for inline onclick function call
+                    const titleEscaped = item.title.replace(/'/g, "\\'");
+                    const descriptionEscaped = item.description.replace(/'/g, "\\'");
+
+                    // Attach the global showModal function to the div's onclick event
+                    mediaContent = `<div 
+                                        onclick="showModal('${item.imageUrl}', '${titleEscaped}', '${descriptionEscaped}', '${item.image}')" 
+                                        title="View Preview: ${item.title}" 
+                                        class="block clickable-image-wrapper"
+                                    >
+                                        ${imageTag}
+                                    </div>`;
                 } else {
                     // Placeholder content if no image URL is provided
                     mediaContent = `<div class="w-full h-48 bg-slate-200 flex items-center justify-center text-slate-500 font-bold text-center p-4 border-b-2 border-slate-300">
                            <span class="text-xl font-mono text-slate-600">REFERENCE: IMAGE ${item.image}</span>
                        </div>`;
                 }
-                // --- END MODIFICATION ---
+                // --- END NEW MODAL RENDERING LOGIC ---
 
                 galleryCard.innerHTML = `
                     ${mediaContent}
@@ -426,6 +495,30 @@
             const chartCanvas = document.getElementById('resultsChart');
             const ctx = chartCanvas.getContext('2d');
             let resultsChart;
+            
+            // --- MODAL EVENT LISTENERS INITIALIZATION ---
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const imageModal = document.getElementById('image-modal');
+
+            // Close when clicking the button
+            closeModalBtn.addEventListener('click', window.closeModal);
+
+            // Close when clicking outside the content area of the modal
+            imageModal.addEventListener('click', (e) => {
+                if (e.target === imageModal) {
+                    window.closeModal();
+                }
+            });
+
+            // Close when pressing Escape key
+            document.addEventListener('keydown', (e) => {
+                // Check if the modal is currently visible (opacity > 0 or not hidden)
+                if (e.key === 'Escape' && !imageModal.classList.contains('hidden')) {
+                    window.closeModal();
+                }
+            });
+            // --- END MODAL EVENT LISTENERS INITIALIZATION ---
+
 
             function updateProjectContent(projectName) {
                 const project = portfolioData.projects[projectName];
