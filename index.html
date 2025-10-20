@@ -48,6 +48,10 @@
             transition: all 0.3s ease-in-out;
             border-color: #10b981;
         }
+        /* Style for clickable image to show interactive cursor */
+        .clickable-image-wrapper {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="text-slate-700">
@@ -131,7 +135,7 @@
         <section id="gallery" class="py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold text-slate-900">Gallery of Works (Visual Proof)</h2>
+                    <h2 class="text-3xl font-bold text-slate-900">Gallery of Works</h2>
                     <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Specific components that validate my implementation quality. <span class="font-bold text-emerald-600">Reference the image numbers below when viewing the live GHL system.</span></p>
                 </div>
                 <!-- Layout adjusted for 6 items on wide screens -->
@@ -235,7 +239,6 @@
             const firebaseConfig = typeof __firebase_config !== 'undefined' ? __firebase_config : '{}';
             const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : undefined;
             
-            // --- FIX APPLIED HERE ---
             // Using the filename directly, as you uploaded it to the root of the GitHub repository.
             const bookFunnelImageURL = 'Book Funnel Web Design.png';
 
@@ -289,7 +292,6 @@
                     { 
                         id: 'funnel', 
                         image: '3 & 4', 
-                        // This uses the file name directly
                         imageUrl: bookFunnelImageURL, 
                         title: 'High-Conversion Mobile Funnels', 
                         description: 'Visual proof of professional, mobile-optimized landing page design and front-end conversion architecture.' 
@@ -386,12 +388,22 @@
                 const galleryCard = document.createElement('div');
                 galleryCard.className = 'bg-white rounded-xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-2xl hover:border-b-4 border-emerald-500';
 
-                // Conditional rendering for the gallery image/placeholder
-                const mediaContent = item.imageUrl 
-                    ? `<img src="${item.imageUrl}" alt="${item.title}" class="w-full h-48 object-cover object-top border-b-2 border-slate-300" onerror="this.onerror=null;this.src='https://placehold.co/600x400/94a3b8/475569?text=Image+Load+Error';">` 
-                    : `<div class="w-full h-48 bg-slate-200 flex items-center justify-center text-slate-500 font-bold text-center p-4 border-b-2 border-slate-300">
+                // --- MODIFIED RENDERING LOGIC FOR CLICKABLE IMAGE ---
+                let mediaContent;
+                
+                if (item.imageUrl) {
+                    const imageTag = `<img src="${item.imageUrl}" alt="${item.title}" class="w-full h-48 object-cover object-top border-b-2 border-slate-300" onerror="this.onerror=null;this.src='https://placehold.co/600x400/94a3b8/475569?text=Image+Load+Error';">`;
+                    
+                    // Wrap the image in a link to itself, opening in a new tab.
+                    // Added clickable-image-wrapper for cursor styling.
+                    mediaContent = `<a href="${item.imageUrl}" target="_blank" title="View Full Image: ${item.title}" class="block clickable-image-wrapper">${imageTag}</a>`;
+                } else {
+                    // Placeholder content if no image URL is provided
+                    mediaContent = `<div class="w-full h-48 bg-slate-200 flex items-center justify-center text-slate-500 font-bold text-center p-4 border-b-2 border-slate-300">
                            <span class="text-xl font-mono text-slate-600">REFERENCE: IMAGE ${item.image}</span>
                        </div>`;
+                }
+                // --- END MODIFICATION ---
 
                 galleryCard.innerHTML = `
                     ${mediaContent}
